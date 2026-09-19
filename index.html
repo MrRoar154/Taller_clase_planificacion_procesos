@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de planificación de procesos</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Sistemas Operativos · NRC 60-92973</p>
+    <h1>Simulador de planificación de procesos</h1>
+    <p class="lead">Elija una política, agregue procesos y vea de inmediato el orden de ejecución, el Gantt y las métricas.</p>
+  </header>
+
+  <section class="card">
+    <h2>Variables del modelo</h2>
+    <div id="glossary" class="glossary"></div>
+  </section>
+
+  <section class="layout">
+    <section class="card">
+      <h2>Política de planificación</h2>
+      <div id="policy-buttons" class="policy-row"></div>
+      <p id="policy-hint" class="hint"></p>
+      <label id="quantum-wrap" class="field" hidden>
+        Quantum (Q)
+        <input id="quantum" type="number" min="1" step="1" value="2">
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>Procesos</h2>
+      <form id="process-form" class="form-grid">
+        <label class="field">
+          P
+          <input id="process-id" type="text" maxlength="8" autocomplete="off">
+        </label>
+        <label class="field">
+          AT
+          <input id="process-at" type="number" min="0" step="1" value="0" required>
+        </label>
+        <label class="field">
+          BT
+          <input id="process-bt" type="number" min="1" step="1" value="1" required>
+        </label>
+        <button type="submit" class="primary-btn">Agregar</button>
+      </form>
+      <div class="actions">
+        <button type="button" id="example-class" class="ghost-btn">Ejemplo de clase</button>
+        <button type="button" id="example-level2" class="ghost-btn">Datos Nivel 2</button>
+        <button type="button" id="clear-processes" class="ghost-btn">Limpiar</button>
+      </div>
+      <div id="process-list" class="process-list"></div>
+    </section>
+  </section>
+
+  <section class="card">
+    <h2>Orden de ejecución</h2>
+    <p id="error-box" class="error" hidden></p>
+    <div id="gantt" class="gantt"></div>
+    <div id="results" class="results"></div>
+  </section>
+
+  <footer>
+    <p>Julian Esteban Chavez Zamora · Docente Ricardo Andres Valencia Barrera · UNIMINUTO</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
